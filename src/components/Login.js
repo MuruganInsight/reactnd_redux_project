@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import { Redirect } from "react-router-dom";
 import { connect } from 'react-redux'
 import { setAuthedUser } from "../actions/authedUser";
 import GameLogo from '../images/game.svg'
-import fakeAuth from "./fakeAuth";
 import { Object } from 'core-js';
 
 class Login extends Component {
@@ -14,7 +12,7 @@ class Login extends Component {
     
     handleSubmit = (e) => {
       e.preventDefault();
-      const { from } = this.props.location.state || {from: {pathname: "/protected"}}
+      const { from } = this.props.location.state || {from: {pathname: "/home"}}
       this.props.dispatch(setAuthedUser(this.state.value))
       this.props.history.push(from)
       }
@@ -29,12 +27,13 @@ class Login extends Component {
       return (
         <div className="row">
           <div className="column small-6 small-centered login-container">
-            <h2>Welcome to the <br/>Would You Rather App!</h2>
-            <p>Please sign in to continue</p>
+            <h3>Welcome to the <br/>Would You Rather App!</h3>
+            {/* <p>Please sign in to continue</p> */}
+            <img src={GameLogo} width="100px" className="game-logo" alt=""/>
             <form onSubmit={this.handleSubmit}>
             <div className="row">
                 <div className="column small-12">
-                <h3>Sign in</h3>
+                <h5>Sign in</h5>
                   <select value={this.state.value} onChange={this.handleChange}>
                     <option value="" disabled>Select a user</option>
                     {
@@ -45,7 +44,7 @@ class Login extends Component {
                   </select>
                 </div>
               </div>
-              <button className="button" type="submit">Log in</button>
+              <button className="button" disabled={this.state.value === ''} type="submit">Log in</button>
 
           </form>
           </div>

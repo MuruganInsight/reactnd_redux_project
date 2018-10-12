@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import PrivateRoute from './PrivateRoute'
 import './App.css'
 import Login from './Login'
-import Protected from './Protected'
+import Home from './Home'
 import LeaderBoard from './LeaderBoard'
 import NewQuestion from './NewQuestion'
 import Navigation from './Navigation'
@@ -25,7 +25,7 @@ class App extends Component {
         <Navigation /> 
         <Switch>
           <Route path="/" exact component={Login} />
-          <PrivateRoute path="/protected"  isAuthenticate={ authedUser !== null}  component={Protected} />
+          <PrivateRoute path="/home"  isAuthenticate={ authedUser !== null}  component={Home} />
           <PrivateRoute path="/newquestion" isAuthenticate={ authedUser !== null} component={NewQuestion} />
           <PrivateRoute path="/leaderboard" isAuthenticate={ authedUser !== null} component={LeaderBoard} />
           <Route component={NoMatch}/>

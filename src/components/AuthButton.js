@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import { setAuthedUser } from "../actions/authedUser";
 
-
 class AuthButton extends Component {
   handleClick = (e) => {
     e.preventDefault();
@@ -15,10 +14,29 @@ class AuthButton extends Component {
     return (
       <div className="top-bar-right">
         <ul className="menu">
-          <li className="menu-text">
-            {authedUser !== null ? `Welcome! ${users[authedUser].name}` : 'You are not logged in'}
-          </li>
-          <li><button type="button" disabled={authedUser === null} className="button" onClick={this.handleClick}>Logout</button></li>
+
+        {
+          authedUser !== null 
+          ? (<div>
+              <li className="menu-text avatar-holder">
+                <div>
+                    <img className="avatar" src={`${users[authedUser].avatarURL}`} alt="" />
+                  </div>
+              </li>
+              <li className="menu-text user-info">
+                <div>
+                    <p>Welcome! <br/>{users[authedUser].name}</p>
+                </div>
+              </li></div>) 
+        : <li className="menu-text small">Please sign in to continue</li>
+        
+        }
+        
+
+   
+          <li>
+            <button type="button" disabled={authedUser === null} className="button" onClick={this.handleClick}style={{display: `${authedUser !== null ? 'block' : 'none'}`}}>Logout</button>
+            </li>
         </ul>
       </div>
     )

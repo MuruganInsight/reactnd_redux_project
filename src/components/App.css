@@ -3,10 +3,11 @@
 /* App Container */
 div#root{
   display: block;
-  max-width:1200px;
+  max-width:960px;
+  min-height: 800px;
   width: 100%;
-  margin: 0 auto;
-  background-color:#eee;
+  margin: 10px auto;
+  background-color:#efefef;
   padding:0 0 40px 0;
 }
 /* Navigation */
@@ -19,4 +20,63 @@ div#root{
   padding:20px;
   margin-top:40px;
   background-color:white;
+}
+
+.top-bar{
+  padding:0;
+}
+.is-active{
+  background-color: orange;
+  color:white !important;
+  font-weight: 700;
+}
+
+.game-logo{
+  margin: 40px 0;
+}
+
+.avatar{
+  width: 40px;
+  border-radius: 50%;
+  margin-right:10px;
+}
+
+.avatar-holder{
+  padding:0 !important;
+  margin-top:0;
+}
+
+.user-info{
+  font-size:13px;
+  padding:0;
+  margin:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user-info {
+  line-height: 1;
+}
+
+li a {
+  font-size:1.2rem;
+}
+
+.menu-text{
+  display: flex;
+  padding: 0 !important;
+  margin-right:10px;
+}
+
+.menu-text div p{
+  padding-top:12px;
+  line-height: 1;
+}
+
+.dropdown.menu> li > a {
+  padding: 0.8rem 1rem;
+}
+
+button{
+  height: 100%;
 }
