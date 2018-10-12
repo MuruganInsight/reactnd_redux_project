@@ -1,40 +1,45 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter
-} from "react-router-dom";
-import fakeAuth from "./fakeAuth";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { connect } from 'react-redux'
 import PrivateRoute from './PrivateRoute'
-import AuthButton from './AuthButton'
+import './App.css'
 import Login from './Login'
-import Public from './Public'
 import Protected from './Protected'
 import LeaderBoard from './LeaderBoard'
 import NewQuestion from './NewQuestion'
+import Navigation from './Navigation'
+import NoMatch from './NoMatch'
+import handleInitialData from "../actions/shared";
 
-const App = () => (
-  <Router>
-    <div>
-      <AuthButton />
-      <ul>
-        <li>
-          <Link to="/protected">Home</Link>
-          <Link to="/newquestion">New Question</Link>
-          <Link to="/leaderboard">Leader Board</Link>
-        </li>
-      </ul>
-      <Route path="/" exact component={Login} />
-      <PrivateRoute path="/protected" component={Protected} />
-      <PrivateRoute path="/newquestion" component={NewQuestion} />
-      <PrivateRoute path="/leaderboard" component={LeaderBoard} />
-    </div>
-  </Router>
-);
+class App extends Component {
+  
+  componentDidMount() {
+    this.props.dispatch(handleInitialData())
+  }
+  
+  render(){
+    const {authedUser} = this.props
+    return (
+      <Router>
+      <div> 
+        <Navigation /> 
+        <Switch>
+          <Route path="/" exact component={Login} />
+          <PrivateRoute path="/protected"  isAuthenticate={ authedUser !== null}  component={Protected} />
+          <PrivateRoute path="/newquestion" isAuthenticate={ authedUser !== null} component={NewQuestion} />
+          <PrivateRoute path="/leaderboard" isAuthenticate={ authedUser !== null} component={LeaderBoard} />
+          <Route component={NoMatch}/>
+        </Switch>
+      </div>
+    </Router>
+    )
+  }
+}
 
 
+const mapStateToProps = ({ authedUser }) => ({
+  authedUser,
+})
 
 
-export default App;
+export default connect(mapStateToProps)(App);
