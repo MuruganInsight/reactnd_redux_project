@@ -6,7 +6,7 @@ import AuthButton from './AuthButton'
 const Navigation = () => (   
 <div className="top-bar">
   <div className="top-bar-left">
-    <ul className="dropdown menu" data-dropdown-menu>
+    <ul className="menu">
         <li><NavLink activeClassName='is-active' to="/home">Home</NavLink></li>
         <li><NavLink activeClassName='is-active' to="/newquestion">New Question</NavLink></li>
         <li><NavLink activeClassName='is-active' to="/leaderboard">Leader Board</NavLink></li>

@@ -17,7 +17,7 @@ class AuthButton extends Component {
 
         {
           authedUser !== null 
-          ? (<div>
+          ? (<div className="user-status">
               <li className="menu-text avatar-holder">
                 <div>
                     <img className="avatar" src={`${users[authedUser].avatarURL}`} alt="" />
@@ -25,7 +25,7 @@ class AuthButton extends Component {
               </li>
               <li className="menu-text user-info">
                 <div>
-                    <p>Welcome! <br/>{users[authedUser].name}</p>
+                    <p><span>Welcome! </span><br/>{users[authedUser].name}</p>
                 </div>
               </li></div>) 
         : <li className="menu-text small">Please sign in to continue</li>

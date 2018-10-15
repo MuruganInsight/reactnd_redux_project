@@ -30,12 +30,12 @@ class Login extends Component {
             <h3>Welcome to the <br/>Would You Rather App!</h3>
             {/* <p>Please sign in to continue</p> */}
             <img src={GameLogo} width="100px" className="game-logo" alt=""/>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} >
             <div className="row">
                 <div className="column small-12">
                 <h5>Sign in</h5>
-                  <select value={this.state.value} onChange={this.handleChange}>
-                    <option value="" disabled>Select a user</option>
+                  <select defaultValue={this.state.value} onChange={this.handleChange}>
+                  <option value='' disabled={true}>Select a User</option>
                     {
                       userIds.map(id => (
                         <option value={id} key={id}>{users[id].name}</option>
@@ -53,7 +53,7 @@ class Login extends Component {
     }
   }
 
-  const mapStateToProps = ({users, authedUser}) => ({
+  const mapStateToProps = ({users}) => ({
     users,
     userIds: Object.keys(users)
   })
