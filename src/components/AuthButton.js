@@ -4,11 +4,15 @@ import {withRouter} from 'react-router-dom'
 import { setAuthedUser } from "../actions/authedUser";
 
 class AuthButton extends Component {
+
+
   handleClick = (e) => {
     e.preventDefault();
     this.props.dispatch(setAuthedUser(null))
     this.props.history.push("/")
   }
+
+
   render(){
     const {users, authedUser} = this.props
     return (
@@ -29,11 +33,7 @@ class AuthButton extends Component {
                 </div>
               </li></div>) 
         : <li className="menu-text small">Please sign in to continue</li>
-        
         }
-        
-
-   
           <li>
             <button type="button" disabled={authedUser === null} className="button" onClick={this.handleClick}style={{display: `${authedUser !== null ? 'block' : 'none'}`}}>Logout</button>
             </li>

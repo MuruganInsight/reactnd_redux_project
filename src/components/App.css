@@ -11,7 +11,7 @@ div#root{
   display: block;
   min-height: 800px;
   width: 100%;
-  padding:0 0 40px 0;
+  padding: 80px 40px 0;
 }
 
 .app-holder{
@@ -43,6 +43,10 @@ div#root{
 .top-bar{
   padding:0;
   margin-bottom:40px;
+  position: fixed;
+  width: 100%;
+  top:0;
+  left:0; 
 }
 .is-active{
   background-color: #E69E01;
@@ -58,6 +62,10 @@ div#root{
   width: 40px;
   border-radius: 50%;
   margin-right:10px;
+}
+.avatar-full{
+  width:100%;
+  border-radius: 50%;
 }
 
 .avatar-holder{
@@ -114,9 +122,10 @@ button{
 }
 
 /* home container */
-.home-container{
+.container{
   max-width:960px;
   margin:0 auto;
+  background-color:#efefef;
 }
 
 .question-container{
@@ -141,7 +150,7 @@ button{
   background-color:white;
   padding-top:15px;
   padding-bottom:15px;
-  margin-bottom:20px;
+  margin-top:20px;
 }
 
 .author-img{
@@ -168,4 +177,99 @@ button{
 
 .tabs li:first-child {
   background-color:#E69E01;
+}
+
+
+/* button */
+  .button-rounded-hover {
+    border: 0;
+    border-radius: 5000px;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    transition: all 0.35s ease;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+  }
+
+  .button-rounded-hover:before {
+    opacity: 0;
+    content: "";
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    border-radius: inherit;
+    background-color: #fefefe;
+    transition: all 0.3s;
+    -webkit-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+
+  .button-rounded-hover:after {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    border: 5px solid #115b8d;
+    content: '';
+    border-radius: inherit;
+  }
+
+  .button-rounded-hover:hover,
+  .button-rounded-hover:focus {
+    background-color: #115b8d;
+  }
+
+  .button-rounded-hover:hover:before,
+  .button-rounded-hover:focus:before {
+    -webkit-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+            transform: translateX(0%);
+    opacity: 0.25;
+  }
+
+
+  /* Leader Board */
+
+  .leader-board{
+    padding:20px;
+  }
+
+.leader-board__player{
+  margin-top:20px;
+  background-color:white;
+  padding:20px;
+}
+
+.leader-board__player:nth-child(1){
+  margin-top:0;
+}
+
+.leader-board__player:nth-child(2) .score--count{
+  background-color:silver;
+}
+
+.leader-board__player:nth-child(3) .score--count{
+  background-color:brown;
+}
+
+.score--title{
+  padding:10px;
+  text-align: center;
+}
+
+.score--count{
+  font-size:40px;
+  text-align: center;
+  font-weight: 700;
+  background:#E69E01;
+  color:white;
+
 }

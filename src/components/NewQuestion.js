@@ -3,8 +3,7 @@ import React, { Component } from 'react'
 export default class NewQuestion extends Component {
     render() {
         return (
-            <div>
-                New question
+            <div className="row column">
             </div>
         )
     }

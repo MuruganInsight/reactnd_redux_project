@@ -7,6 +7,7 @@ import reducer from './reducers'
 import middleware from './middlewares'
 
 import './index.css';
+import './components/App.css'
 import App from './components/App';
 
 const store = createStore(reducer, middleware);

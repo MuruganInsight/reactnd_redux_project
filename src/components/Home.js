@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import Question from './Question'
 
 class Home extends Component {
@@ -18,9 +17,8 @@ class Home extends Component {
     render() {
         const {tab} = this.state
         const { unansweredIds, answeredIds } = this.props
-        console.log(unansweredIds);
         return (
-            <div className="home-container">
+            <div className="container">
             {/* tab */}
                 <div className="row">
                     <ul className="tabs column small-12">
@@ -39,9 +37,7 @@ class Home extends Component {
                         <h3 className="text-center">Unanswered Questions:</h3>
                         {
                             unansweredIds.map(id => (
-                                <Link to={`/questions/${id}`} key={id}>
-                                    <Question key={id} id={id} answered={false} />
-                                </Link>
+                                    <Question id={id} key={id} answered={false} />
                             ))
                         }
                         
@@ -52,13 +48,11 @@ class Home extends Component {
                 {tab === 'answered' && (
                 <div className="question-container  light-blue">
                     <h3 className="text-center">Answered Questions:</h3>
-                    {
-                            answeredIds.map(id => (
-                                <Link to={`/questions/${id}`} key={id}>
-                                    <Question key={id} id={id} answered={true} />
-                                </Link>
-                            ))
-                        }
+                    {   
+                        answeredIds.map(id => (
+                            <Question id={id} key={id} answered={true} />
+                        ))
+                    }
                 </div>
                 )}
 
