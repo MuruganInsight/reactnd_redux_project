@@ -11,7 +11,7 @@ class LeaderBoard extends Component {
             <div className="container leader-board">
                 {/* Title */}
                 <div className="row">
-                    <div className="column small-12">
+                    <div className="column small-12 container-title">
                         <h2>Leader Board</h2>
                     </div>
                 </div>

@@ -11,7 +11,8 @@ div#root{
   display: block;
   min-height: 800px;
   width: 100%;
-  padding: 80px 40px 0;
+  padding: 60px 40px 0;
+  background-color: #efefef;
 }
 
 .app-holder{
@@ -48,6 +49,11 @@ div#root{
   top:0;
   left:0; 
 }
+.top-bar, .top-bar ul {
+  background-color:#060606;
+}
+
+
 .is-active{
   background-color: #E69E01;
   color:white !important;
@@ -95,17 +101,20 @@ div#root{
   display: flex;
   align-items: center;
   justify-content: stretch;
-
+  color:white !important;
 }
 
 li a {
   font-size:1.2rem;
+  color:white;
+  border-right:1px solid rgba(255,255,255,0.3);
 }
 
 .menu-text{
   display: flex;
   padding: 0 !important;
   margin-right:10px;
+  color:white !important;
 }
 
 .menu-text div p{
@@ -125,7 +134,16 @@ button{
 .container{
   max-width:960px;
   margin:0 auto;
+  padding:20px;
   background-color:#efefef;
+}
+
+.container-small{
+  max-width: 600px;  
+}
+.container-title{
+  text-align: center;
+  margin-bottom:30px;
 }
 
 .question-container{

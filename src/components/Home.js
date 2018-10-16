@@ -34,7 +34,7 @@ class Home extends Component {
                 {/* unanswered tab content // if unanswered === true, show the unanswered content*/}
                 {tab === 'unanswered' &&
                     <div className="question-container light-orange">
-                        <h3 className="text-center">Unanswered Questions:</h3>
+                        <h2 className="text-center">Unanswered Questions:</h2>
                         {
                             unansweredIds.map(id => (
                                     <Question id={id} key={id} answered={false} />
@@ -47,7 +47,7 @@ class Home extends Component {
                 {/* unanswered tab content // if unanswered === false, show the answered content*/}
                 {tab === 'answered' && (
                 <div className="question-container  light-blue">
-                    <h3 className="text-center">Answered Questions:</h3>
+                    <h2 className="text-center">Answered Questions:</h2>
                     {   
                         answeredIds.map(id => (
                             <Question id={id} key={id} answered={true} />
