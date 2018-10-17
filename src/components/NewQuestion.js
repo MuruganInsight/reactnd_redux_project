@@ -11,18 +11,14 @@ class NewQuestion extends Component {
 
     handleChange =  e => {
         e.preventDefault();
-        const {name, value} = e.target
-
-        this.setState(() => ({
-            [name] : value
-        }))
-
+        this.setState({
+            [e.target.name] : e.target.value
+        })
     }
 
     handleSubmit = e => {
         e.preventDefault();
         const { firstOption, secondOption } = this.state
-        console.log(this.props.authedUser);
         this.props.dispatch(handleNewQuestion(firstOption, secondOption, this.props.authedUser))
         this.setState({
           firstOption: "",
@@ -74,7 +70,7 @@ class NewQuestion extends Component {
     }
 }
 const mapStateToProps = ({ authedUser }) => ({
-    authedUser
+    authedUser,
 })
 
 
