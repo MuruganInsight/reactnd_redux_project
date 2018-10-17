@@ -16,9 +16,8 @@ export function newQuestion(question) {
     }
   }
 
-export function handleNewQuestion(firstOption, secondOption) {
-    return (dispatch, getState) => {
-      const { authedUser } = getState()
+export function handleNewQuestion(firstOption, secondOption, authedUser) {
+    return (dispatch) => {
       return saveQuestion({
         optionOneText: firstOption,
         optionTwoText: secondOption,
