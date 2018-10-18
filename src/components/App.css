@@ -4,6 +4,7 @@
   /* blue:#037C8D */
   /* orange: #E69E01 */
   /* red : #E61101 */
+  /* green: #3dcea6 */
 
 
 /* App Container */
@@ -290,4 +291,29 @@ button{
   background:#E69E01;
   color:white;
 
+}
+
+/* answered Container */
+.answered-container{
+  max-width:600px;
+  margin:0 auto;
+  padding:20px;
+  background-color: #fff;
+  /* border: 2px solid #cccccc; */
+}
+
+.answered-container img {
+  border-radius:50%;
+  
+}
+
+.answered-container__title {
+  margin-bottom:20px;
+  padding:0 20px 20px ;
+  border-bottom: 1px solid #cccccc;
+}
+
+.result-cointainer {
+  padding:20px;
+  margin-bottom:20px;
 }

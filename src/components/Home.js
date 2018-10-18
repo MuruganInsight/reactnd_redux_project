@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+
 import Question from './Question'
 
 class Home extends Component {
@@ -37,7 +39,9 @@ class Home extends Component {
                         <h2 className="text-center">Unanswered Questions:</h2>
                         {
                             unansweredIds.map(id => (
-                                    <Question id={id} key={id} answered={false} />
+                                <Link to={`/unanswered/${id}`} key={id}>
+                                    <Question id={id} />
+                                </Link>
                             ))
                         }
                         
@@ -50,7 +54,9 @@ class Home extends Component {
                     <h2 className="text-center">Answered Questions:</h2>
                     {   
                         answeredIds.map(id => (
-                            <Question id={id} key={id} answered={true} />
+                            <Link to={`/answered/${id}`} key={id}>
+                                <Question id={id} />
+                            </Link>
                         ))
                     }
                 </div>

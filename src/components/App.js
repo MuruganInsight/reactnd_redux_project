@@ -10,6 +10,7 @@ import Home from './Home'
 import LeaderBoard from './LeaderBoard'
 import NewQuestion from './NewQuestion'
 import Answered from './Answered'
+import Unanswered from './Unanswered'
 import Navigation from './Navigation'
 import NoMatch from './NoMatch'
 import handleInitialData from "../actions/shared";
@@ -33,7 +34,8 @@ class App extends Component {
                 <PrivateRoute path="/home"  isLogged={ authedUser !== null}  component={Home} />
                 <PrivateRoute path="/newquestion" isLogged={ authedUser !== null} component={NewQuestion} />
                 <PrivateRoute path="/leaderboard" isLogged={ authedUser !== null} component={LeaderBoard} />
-                <PrivateRoute path="/questions/:id" isLogged={ authedUser !== null} component={Answered} />
+                <PrivateRoute path="/answered/:id" isLogged={ authedUser !== null} component={Answered} />
+                <PrivateRoute path="/unanswered/:id" isLogged={ authedUser !== null} component={Unanswered} />
                 <Route component={NoMatch}/>
               </Switch>
           </div>
