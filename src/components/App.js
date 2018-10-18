@@ -30,7 +30,7 @@ class App extends Component {
             <div className="app-holder"> 
               <Navigation /> 
               <Switch>
-                <Route path="/" exact component={Login} />
+                <Route path="/" exact isLogged={ authedUser !== null}  component={Login} />
                 <PrivateRoute path="/home"  isLogged={ authedUser !== null}  component={Home} />
                 <PrivateRoute path="/newquestion" isLogged={ authedUser !== null} component={NewQuestion} />
                 <PrivateRoute path="/leaderboard" isLogged={ authedUser !== null} component={LeaderBoard} />

@@ -6,7 +6,7 @@ class LeaderBoard extends Component {
     render(){
         const { sortedUsers } = this.props;
 
-        const i = [0,1,2];
+        // const i = [0,1,2];
         return (
             <div className="container leader-board">
                 {/* Title */}

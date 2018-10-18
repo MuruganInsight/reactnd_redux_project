@@ -13,8 +13,8 @@ class Answered extends Component {
         const {avatarURL, name} = user
 
         const totalVotes = question.optionOne.votes.length + question.optionTwo.votes.length;
-        let optionOnePercentage = question.optionOne.votes.length / totalVotes * 100
-        let OptionTwoPercentage = question.optionTwo.votes.length / totalVotes * 100        
+        let optionOnePercentage = Math.round(question.optionOne.votes.length / totalVotes * 100)
+        let OptionTwoPercentage = Math.round(question.optionTwo.votes.length / totalVotes * 100)        
         
         // for background color of authed user.
         const option = users[authedUser].answers[questionId];

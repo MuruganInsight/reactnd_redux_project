@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
+import { Redirect} from 'react-router-dom'
 import { handleSaveAnswer } from '../actions/questions'
 
 
@@ -11,7 +12,7 @@ class UnAnswered extends Component {
 
     handleSubmit = e => {
        e.preventDefault();
-       const {selected} = this.state
+       const { selected } = this.state
        const { authedUser } = this.props
        const questionId = this.props.match.params.id.toString()
        this.props.dispatch(handleSaveAnswer(questionId, selected, authedUser))
@@ -28,14 +29,24 @@ class UnAnswered extends Component {
 
     render() {
 
-        const { questions, users} = this.props
+        const { questions, users, authedUser} = this.props
         const questionId = this.props.match.params.id
         const question = questions[questionId];
         const {author, optionOne, optionTwo} = question
         const user = users[author];
         const {avatarURL, name} = user
-        console.log(questionId);
 
+        console.log(this.props);
+
+        const answers = users[authedUser].answers;
+        const alreadyVoted = answers.hasOwnProperty(questionId.toString());
+
+        console.log(alreadyVoted)
+
+        // if already voted for this question, redirected to the home component
+        if(alreadyVoted){
+            return <Redirect to="/home" />
+        }
 
         return (
             <div className="answered-container">
@@ -59,7 +70,8 @@ class UnAnswered extends Component {
                                         <input type="radio" value="optionOne" name="option" /> {optionOne.text}
                                         <br />
                                         <input type="radio" value="optionTwo" name="option" /> {optionTwo.text}
-                                        <button className="button" onClick={this.handleSubmit}>Submit</button>
+                                        <br />
+                                        <button className="button" onClick={this.handleSubmit} disabled={ this.state.selected === ''}>Submit</button>
                                     </form>
                                 </div>
                             </div>
