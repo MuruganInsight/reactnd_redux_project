@@ -15,12 +15,13 @@ export function getInitialData() {
   }))
 }
 
-export function saveQuestionAnswer(info) {
-  return _saveQuestionAnswer(info)
-}
-
 export function saveQuestion(question) {
   return Promise.all([
     _saveQuestion(question)
   ]).then(([question]) => (question))
 }
+
+export function saveQuestionAnswer(info) {
+  return _saveQuestionAnswer(info)
+}
+

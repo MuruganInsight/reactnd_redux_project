@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
-import AuthButton from './AuthButton'
+import TopBar from './TopBar'
 
 // used Nav Link for the active class
 const Navigation = () => (   
@@ -12,7 +12,7 @@ const Navigation = () => (
         <li><NavLink activeClassName='is-active' to="/leaderboard">Leader Board</NavLink></li>
     </ul>
   </div>
-  <AuthButton />
+  <TopBar />
 </div>
 )
 

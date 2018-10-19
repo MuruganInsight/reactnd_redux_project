@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import { setAuthedUser } from "../actions/authedUser";
 
-class AuthButton extends Component {
+class TopBar extends Component {
 
 
   handleClick = (e) => {
@@ -24,8 +24,8 @@ class AuthButton extends Component {
           ? (<div className="user-status">
               <li className="menu-text avatar-holder">
                 <div>
-                    <img className="avatar" src={`${users[authedUser].avatarURL}`} alt="" />
-                  </div>
+                  <img className="avatar" src={`${users[authedUser].avatarURL}`} alt="" />
+                </div>
               </li>
               <li className="menu-text user-info">
                 <div>
@@ -43,31 +43,10 @@ class AuthButton extends Component {
   }
 }
 
-
-
-
-
-// const AuthButton = withRouter(
-//     ({ history }) =>
-//       fakeAuth.isAuthenticated ? (
-//         <p>
-//           Welcome! {" "}
-//           <button className="button"
-//             onClick={() => {
-//               fakeAuth.signout(() => history.push("/"));
-//             }}
-//           >
-//             Sign out
-//           </button>
-//         </p>
-//       ) : (
-//         <p>You are not logged in.</p>
-//       )
-//   );
   const mapStateToProps = ({authedUser, users}) => ({
     users,
     authedUser,
   })
   
   
-  export default withRouter(connect(mapStateToProps)(AuthButton))
+  export default withRouter(connect(mapStateToProps)(TopBar))

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-
 import Question from './Question'
 
 class Home extends Component {
@@ -17,7 +16,7 @@ class Home extends Component {
     }
 
     render() {
-        const {tab} = this.state
+        const { tab } = this.state
         const { unansweredIds, answeredIds } = this.props
         return (
             <div className="container">
@@ -34,7 +33,7 @@ class Home extends Component {
                 </div>
 
                 {/* unanswered tab content // if unanswered === true, show the unanswered content*/}
-                {tab === 'unanswered' &&
+                { tab === 'unanswered' &&
                     <div className="question-container light-orange">
                         <h2 className="text-center">Unanswered Questions:</h2>
                         {
