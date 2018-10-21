@@ -25,14 +25,14 @@ class Login extends Component {
     render() {
       const {users, userIds} = this.props
       return (
-        <div className="row">
-          <div className="column small-6 small-centered login-container">
+        <div className="grid-x align-center">
+          <div className="cell align-center medium-4 login-container">
             <h3>Welcome to the <br/>Would You Rather App!</h3>
             {/* <p>Please sign in to continue</p> */}
             <img src={GameLogo} width="100px" className="game-logo" alt=""/>
             <form onSubmit={this.handleSubmit} >
-            <div className="row">
-                <div className="column small-12">
+            <div className="grid-x">
+                <div className="cell small-12">
                 <h5>Sign in</h5>
                   <select defaultValue={this.state.value} onChange={this.handleChange}>
                   <option value='' disabled={true}>Select a User</option>

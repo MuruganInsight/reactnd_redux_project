@@ -35,35 +35,30 @@ class UnAnswered extends Component {
         const {author, optionOne, optionTwo} = question
         const user = users[author];
         const {avatarURL, name} = user
-
-        console.log(this.props);
-
+        
+        // if already voted for this question, redirected to the home component
         const answers = users[authedUser].answers;
         const alreadyVoted = answers.hasOwnProperty(questionId.toString());
-
-        console.log(alreadyVoted)
-
-        // if already voted for this question, redirected to the home component
         if(alreadyVoted){
             return <Redirect to="/home" />
         }
 
         return (
             <div className="answered-container">
-
-            <div className="expanded row">
-                <div className="column small-12 ">
+            <div className="grid-x">
+                <div className="cell small-12 ">
                     <h5 className="answered-container__title">{ name } asks: </h5>
                 </div>
-
-                <div className="column small-12">
+            </div>
+            <div className="grid-x">
+                <div className="cell small-12">
                     <div className="inner-cointainer">
-                        <div className="row">
+                        <div className="grid-x">
                             {/* for image */}
-                            <div className="columns small-4">
-                                <img src={avatarURL} width="100%" alt={`avtar of ${name}`} />
+                            <div className="cell small-4">
+                                <img src={avatarURL} width="80%" alt={`avtar of ${name}`} />
                             </div>
-                            <div className="columns small-8">
+                            <div className="cell small-8">
                                 <div className="result-cointainer">
                                     <h5>Would you rather</h5>
                                     <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
@@ -71,18 +66,15 @@ class UnAnswered extends Component {
                                         <br />
                                         <input type="radio" value="optionTwo" name="option" /> {optionTwo.text}
                                         <br />
-                                        <button className="button" onClick={this.handleSubmit} disabled={ this.state.selected === ''}>Submit</button>
+                                        <button className="button" disabled={ this.state.selected === ''}>Submit</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
         )
     }
 }

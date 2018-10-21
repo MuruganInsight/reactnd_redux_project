@@ -10,8 +10,8 @@ class LeaderBoard extends Component {
         return (
             <div className="container leader-board">
                 {/* Title */}
-                <div className="row">
-                    <div className="column small-12 container-title">
+                <div className="grid-x">
+                    <div className="cell small-12 container-title">
                         <h2>Leader Board</h2>
                     </div>
                 </div>
@@ -23,16 +23,16 @@ class LeaderBoard extends Component {
                     sortedUsers.map((user) =>{
                         const {id, name, avatarURL, answers, questions} = user
                         
-                        return <div key={id} className="row leader-board__player">
-                            <div className="column small-2">
+                        return <div key={id} className="grid-x align-middle leader-board__player">
+                            <div className="cell small-3">
                                 <img className="avatar-full" src={avatarURL} alt={`avatar of ${name}`} />
                             </div>
-                            <div className="column small-8">
+                            <div className="cell small-7">
                                 <h3 className="bold">{name}</h3>
-                                <h6>Answered Question: {Object.keys(answers).length}</h6>
-                                <h6>Created Question: {questions.length}</h6>
+                                <h5>Answered Question: {Object.keys(answers).length}</h5>
+                                <h5>Created Question: {questions.length}</h5>
                             </div>
-                            <div className="column small-2 score">
+                            <div className="cell small-2 score">
                                 <div className="score--title">
                                     Score
                                 </div>
