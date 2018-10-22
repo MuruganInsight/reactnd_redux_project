@@ -9,7 +9,7 @@ class Answered extends Component {
         const questionId = this.props.match.params.id
         const question = questions[questionId];
         
-        // show the home component if question id doesnot match, after return from the home.
+        // show the home component if question id doesnot match.
         const questionIsInIt = questions.hasOwnProperty(questionId.toString());
         if(!questionIsInIt){
             return <Redirect to="/home" />
@@ -43,9 +43,11 @@ class Answered extends Component {
                                 <div className="cell small-4">
                                     <img src={avatarURL} width="80%" alt={`avtar of ${name}`} />
                                 </div>
-                                {/* result container */}
+                                {/* result containers */}
                                 <div className="cell small-8">
                                     <h3 className="results">Results</h3>
+
+                                    {/* result Container */}
                                     <div className="result-cointainer result" 
                                         style={{backgroundColor: option === 'optionOne' ? '#c7ebf5' : 'lightgray' }}>
                                         <h5>Would you rather {optionOne.text}</h5>
@@ -56,6 +58,8 @@ class Answered extends Component {
                                         </div>
                                         <p>{question.optionOne.votes.length} out of {totalVotes} votes</p>
                                     </div>
+
+                                    {/* result Container */}
                                     <div className="result-cointainer result"
                                         style={{backgroundColor: option === 'optionTwo' ? '#c7ebf5' : 'lightgray' }}>
                                         <h5>Would you rather {optionTwo.text}</h5>
@@ -66,11 +70,14 @@ class Answered extends Component {
                                         </div>
                                         <p>{question.optionTwo.votes.length}  out of {totalVotes} votes</p>
                                     </div>
+
+                                    {/* link to home component */}
                                     <Link to="/home">
                                         <div className="grid-x align-middle backbutton">
-                                            <img src={RightArrow} className="backbutton" alt=""/>Back to Dashboard
+                                            <img src={RightArrow} className="backbutton" alt=""/>Back to Home
                                         </div>
                                     </Link>
+                                    
                                 </div>
                             </div>
                         </div>

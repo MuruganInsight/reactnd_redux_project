@@ -6,12 +6,12 @@ You can find the starter code for the "Would You Rather?" Project [here](https:/
 ## Table of Contents
 * [`Dependencies`](#Dependencies)
 * [`Installation`](#Installation)
-* [`Folder Structure`](#Folder Structure)
-* [`API Reference`](#API Reference)
+* [`Folder Structure`](#folder)
+* [`API Reference`](#api)
 * [`Functionality`](#Functionality)
 
 ## `Dependencies`
-I have used the following dependencies - react-router-dom, redux, react-redux, react-redux-loading and redux-thunk for this project. React-router-dom is used to create Route, Links, Redirect; navigate the components and manage the app's URL. Redux is used to create a predictable state container (store) for this project. React-redux is used for react and redux bindings. React-redux-loading is used to create an indicator for loading purpose. I have used Zurb Foundation front-end framework to create the UI. 
+I have used the following dependencies - react-router-dom, redux, react-redux, react-redux-loading and redux-thunk for this project. React-router-dom is used to create Route, Links, Redirect; navigate the components and manage the app's URL. Redux is used to create a predictable state container (store) for this project. React-redux is used for react and redux bindings. React-redux-loading is used to create an indicator for loading purpose. Redux-thunk for middleware purpose. I have used Zurb Foundation front-end framework to create the UI. 
 
 You can find the dependencies URLs below.
 * [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
@@ -30,6 +30,7 @@ To start the development server
 ```shell
 npm start
 ```
+<a name="folder"></a>
 
 ## `Folder Structure`
 ```bash
@@ -75,6 +76,7 @@ npm start
 ├── index.css # Project CSS
 ├── foundation.css # zurb foundation framework css
 ```
+<a name="api"></a>
 
 ## `API Reference`
 
@@ -84,6 +86,10 @@ You can find the methods in the below URL:
 ## `Functionality`
 ### Root ("/"):
 By default Root path contains Login and Topbar components. Login component shows all users in the database. Once you select the user from the dropdown menu, submit button will be enabled. After submit event occurs, login component will be replaced by the home component and Topbar will be updated depending upon the authedUser. You can't access the Home, Leaderboard and New Question components without login. If URL doesn't match the route, NoMatch component will be shown.
+
+Private routes and authentication reference
+[1. Protected routes and authentication with React Router by Tyler McGinnis](https://www.youtube.com/watch?v=ojYbcon588A)
+[2. Redirects (Auth)](https://reacttraining.com/react-router/web/example/auth-workflow)
 
 ### home ("/home"):
 It has two (1. unanswered, 2. answered) tabs with respective questions. You can vote by clicking on the unanswered questions. You can see the results of the answered questions by clicking on the same. 

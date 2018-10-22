@@ -17,7 +17,6 @@ class UnAnswered extends Component {
        const questionId = this.props.match.params.id.toString()
        this.props.dispatch(handleSaveAnswer(questionId, selected, authedUser))
        this.props.history.push(`/answered/${questionId}`)
-
     }
 
     handleChange = (e) => {
@@ -36,7 +35,7 @@ class UnAnswered extends Component {
         const user = users[author];
         const {avatarURL, name} = user
         
-        // if already voted for this question, redirected to the home component
+        // if already voted for this question, redirected to the home component to prevent voting again.
         const answers = users[authedUser].answers;
         const alreadyVoted = answers.hasOwnProperty(questionId.toString());
         if(alreadyVoted){

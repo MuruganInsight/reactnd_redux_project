@@ -8,6 +8,7 @@ import { showLoading, hideLoading } from 'react-redux-loading'
 const AUTHED_ID = null
 // const AUTHED_ID = 'sarahedo'
 
+// to get the initial data from the store.
 export default function handleInitialData(){
     return (dispatch) => {
         dispatch(showLoading())

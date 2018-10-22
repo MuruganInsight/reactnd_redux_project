@@ -1,10 +1,11 @@
 import {saveQuestion, saveQuestionAnswer} from '../utils/api'
 
+// Events strings
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const NEW_QUESTION = 'NEW_QUESTION'
 export const SAVE_ANSWER = 'SAVE_ANSWER'
 
-
+// actions
 export function receiveQuestions(questions){
     return {
         type: RECEIVE_QUESTIONS,
@@ -28,7 +29,7 @@ export function newQuestion(question) {
     }
   }
 
-
+//api methods 
 export function handleSaveAnswer( qid, answer, authedUser ) {
     return (dispatch) => {
       dispatch(saveAnswer(authedUser, qid, answer))

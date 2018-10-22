@@ -5,7 +5,6 @@ import { setAuthedUser } from "../actions/authedUser";
 
 class TopBar extends Component {
 
-
   handleClick = (e) => {
     e.preventDefault();
     this.props.dispatch(setAuthedUser(null))
@@ -18,7 +17,6 @@ class TopBar extends Component {
     return (
       <div className="top-bar-right">
         <ul className="menu">
-
         {
           authedUser !== null 
           ? (<div className="user-status">
@@ -31,12 +29,17 @@ class TopBar extends Component {
                 <div>
                     <p><span>Welcome! </span><br/>{users[authedUser].name}</p>
                 </div>
-              </li></div>) 
-        : <li className="menu-text small">Please sign in to continue</li>
+              </li>
+            </div>) 
+          : <li className="menu-text small">Please sign in to continue</li>
         }
           <li>
-            <button type="button" disabled={authedUser === null} className="button" onClick={this.handleClick}style={{display: `${authedUser !== null ? 'block' : 'none'}`}}>Logout</button>
-            </li>
+            <button type="button" disabled={authedUser === null} className="button" 
+                onClick={this.handleClick} 
+                style={{display: `${authedUser !== null ? 'block' : 'none'}`}}>
+                Logout
+            </button>
+          </li>
         </ul>
       </div>
     )

@@ -42,13 +42,8 @@ class LeaderBoard extends Component {
                             </div>
                         </div>
                     })     
-
-
                 }
                 </div>
-
-
-
             </div>
         )
     }

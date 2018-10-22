@@ -14,8 +14,7 @@ class Question extends Component {
                         <div className="cell small-3">
                             <img className="author-img" 
                                 src={avatarURL} 
-                                alt={`avatar of ${name}`}
-                                />
+                                alt={`avatar of ${name}`}/>
                         </div>
                         <div className="cell small-7 question-details">
                             <h6 className="">{name} asks:</h6>    

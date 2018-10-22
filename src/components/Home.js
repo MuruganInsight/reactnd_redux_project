@@ -30,7 +30,7 @@ class Home extends Component {
                     </div>   
                 </div>
 
-                {/* unanswered tab content // if unanswered === true, show the unanswered content*/}
+                {/* unanswered tab content // if tab === unanswered, show the unanswered questions */}
                 { tab === 'unanswered' &&
                     <div className="question-container light-orange">
                         <h2>Unanswered Questions</h2>
@@ -45,7 +45,7 @@ class Home extends Component {
                     </div>
                 }
                 
-                {/* unanswered tab content // if unanswered === false, show the answered content*/}
+                {/* answered tab content // if tab === answered, show the unanswered questions */}
                 {tab === 'answered' && (
                 <div className="question-container  light-blue">
                     <h2>Answered Questions</h2>
