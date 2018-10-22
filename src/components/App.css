@@ -371,8 +371,3 @@ body{
   .new-question button{
     padding:5px 10px;
   }
-
-/* No match */
-  .no-match img{
-    border:5px solid #46453f;
-  }

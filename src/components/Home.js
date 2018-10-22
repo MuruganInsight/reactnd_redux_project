@@ -36,7 +36,7 @@ class Home extends Component {
                         <h2>Unanswered Questions</h2>
                         {
                             unansweredIds.map(id => (
-                                <Link to={`/unanswered/${id}`} key={id}>
+                                <Link to={`/questions/${id}`} key={id}>
                                     <Question id={id} />
                                 </Link>
                             ))
@@ -51,7 +51,7 @@ class Home extends Component {
                     <h2>Answered Questions</h2>
                     {   
                         answeredIds.map(id => (
-                            <Link to={`/answered/${id}`} key={id}>
+                            <Link to={`/questions/${id}`} key={id}>
                                 <Question id={id} />
                             </Link>
                         ))

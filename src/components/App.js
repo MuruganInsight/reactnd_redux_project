@@ -9,8 +9,7 @@ import Login from './Login'
 import Home from './Home'
 import LeaderBoard from './LeaderBoard'
 import NewQuestion from './NewQuestion'
-import Answered from './Answered'
-import Unanswered from './Unanswered'
+import Questions from './Questions'
 import Navigation from './Navigation'
 import NoMatch from './NoMatch'
 import handleInitialData from "../actions/shared";
@@ -19,6 +18,12 @@ class App extends Component {
   
   componentDidMount() {
     this.props.dispatch(handleInitialData())
+
+    window.onpopstate  = (e) => {
+      console.log(e);
+    }
+    
+
   }
   
   render(){
@@ -32,10 +37,10 @@ class App extends Component {
               <Switch>
                 <Route path="/" exact isLogged={ authedUser !== null}  component={Login} />
                 <PrivateRoute path="/home"  isLogged={ authedUser !== null}  component={Home} />
-                <PrivateRoute path="/newquestion" isLogged={ authedUser !== null} component={NewQuestion} />
+                <PrivateRoute path="/add" isLogged={ authedUser !== null} component={NewQuestion} />
                 <PrivateRoute path="/leaderboard" isLogged={ authedUser !== null} component={LeaderBoard} />
-                <PrivateRoute path="/answered/:id" isLogged={ authedUser !== null} component={Answered} />
-                <PrivateRoute path="/unanswered/:id" isLogged={ authedUser !== null} component={Unanswered} />
+                <PrivateRoute path="/questions/:question_id" isLogged={ authedUser !== null} component={Questions} />
+                <Route path="/login" exact isLogged={ authedUser !== null}  component={Home} />
                 <Route component={NoMatch}/>
               </Switch>
           </div>

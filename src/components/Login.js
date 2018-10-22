@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import { setAuthedUser } from "../actions/authedUser";
 import GameLogo from '../images/game.svg'
 import { Object } from 'core-js';
 
 class Login extends Component {
-
   state = {
     value: '',
   };
@@ -22,7 +22,11 @@ class Login extends Component {
   }
 
   render() {
-    const {users, userIds} = this.props
+    const {users, userIds, authedUser} = this.props
+    
+    if(authedUser !== null){
+      return <Redirect to="/home" />
+    }
     return (
       <div className="grid-x align-center">
         <div className="cell align-center medium-4 login-container">
@@ -51,9 +55,10 @@ class Login extends Component {
   }
 }
 
-  const mapStateToProps = ({users}) => ({
+  const mapStateToProps = ({users, authedUser}) => ({
     users,
-    userIds: Object.keys(users)
+    userIds: Object.keys(users),
+    authedUser
   })
   
 

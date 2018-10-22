@@ -8,7 +8,7 @@ const Navigation = () => (
   <div className="top-bar-left">
     <ul className="menu">
         <li><NavLink activeClassName='is-active' to="/home">Home</NavLink></li>
-        <li><NavLink activeClassName='is-active' to="/newquestion">New Question</NavLink></li>
+        <li><NavLink activeClassName='is-active' to="/add">New Question</NavLink></li>
         <li><NavLink activeClassName='is-active' to="/leaderboard">Leader Board</NavLink></li>
     </ul>
   </div>
